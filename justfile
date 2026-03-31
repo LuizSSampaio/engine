@@ -1,6 +1,6 @@
 default: build
 
-builddir := 'builddir'
+builddir := 'build'
 binName := 'engine'
 
 build:
