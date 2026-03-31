@@ -47,9 +47,14 @@
 
             # HID / USB (for SDL_HIDAPI_LIBUSB)
             libusb1
+
+            dbus
+            libpng
+            freetype
           ];
         in pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            cmake
             meson
             ninja
             clang
