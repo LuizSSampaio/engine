@@ -50,10 +50,9 @@
           ];
         in pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
-            cmake
+            meson
             clang
             lldb
-            lua5_4
             pkg-config
             just
           ];
