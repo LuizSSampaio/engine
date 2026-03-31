@@ -51,6 +51,7 @@
         in pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             meson
+            ninja
             clang
             lldb
             pkg-config
