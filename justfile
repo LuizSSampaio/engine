@@ -1,12 +1,10 @@
-
 default: build
 
 builddir := 'builddir'
 binName := 'engine'
 
-[working-directory: 'builddir']
 build:
-    meson compile
+    meson compile -C {{ builddir }}
 
 run:
     ./{{ builddir }}/{{ binName }}
