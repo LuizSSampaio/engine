@@ -10,6 +10,9 @@ void Engine::Run() {
     this->Setup();
 
     while (!this->shouldClose_) {
+        double deltaTime = (SDL_GetTicks() - this->lastFrameTime_) / 1000.0;
+        this->lastFrameTime_ = SDL_GetTicks();
+
         this->PollEvents();
         this->Update();
         this->Render();

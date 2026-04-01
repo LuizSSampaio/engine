@@ -18,5 +18,6 @@ class Engine {
     SDL_Window *window_;
     SDL_Renderer *renderer_;
 
+    double lastFrameTime_;
     bool shouldClose_;
 };
