@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-#include <iostream>
+#include "Logger.h"
 
 Engine::Engine() {}
 
@@ -23,7 +23,7 @@ void Engine::Run() {
 
 void Engine::Setup() {
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
-        std::cout << "Failed to initialize SDL3" << std::endl;
+        LOG_CRITICAL("Failed initialize SDL3");
         return;
     }
 
@@ -31,7 +31,8 @@ void Engine::Setup() {
                                      SDL_WINDOW_BORDERLESS |
                                          SDL_WINDOW_RESIZABLE,
                                      &this->window_, &this->renderer_)) {
-        std::cout << "Failed to create a window and a renderer" << std::endl;
+
+        LOG_CRITICAL("Failed to create window/renderer");
         return;
     }
 
