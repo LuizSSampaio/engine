@@ -9,6 +9,7 @@ class Engine {
 
     void Run();
     void Setup();
+    void PollEvents();
     void Update();
     void Render();
     void Destroy();

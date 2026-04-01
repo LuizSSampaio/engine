@@ -10,6 +10,7 @@ void Engine::Run() {
     this->Setup();
 
     while (!this->shouldClose_) {
+        this->PollEvents();
         this->Update();
         this->Render();
     }
@@ -34,6 +35,19 @@ void Engine::Setup() {
     SDL_MaximizeWindow(this->window_);
 
     this->shouldClose_ = false;
+}
+
+void Engine::PollEvents() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
+        case SDL_EVENT_QUIT:
+            this->shouldClose_ = true;
+            break;
+        default:
+            break;
+        }
+    }
 }
 
 void Engine::Update() {}
