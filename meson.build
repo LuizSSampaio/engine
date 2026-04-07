@@ -1,4 +1,4 @@
-project('engine', 'cpp', default_options: ['default_library=static', 'cpp_std=c++20'])
+project('engine', 'cpp', default_options: ['default_library=static', 'cpp_std=c++23'])
 
 sdl3_dep = dependency('sdl3')
 sdl3_image_dep = dependency('sdl3_image')
