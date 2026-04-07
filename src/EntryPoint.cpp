@@ -1,7 +1,7 @@
-#include "src/Engine.h"
+#include "Core/Core.h"
 
 int main(int argc, char *argv[]) {
-    Engine engine;
+    Core engine;
     engine.Run();
 
     return 0;

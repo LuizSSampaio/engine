@@ -1,14 +1,14 @@
 #pragma once
 
 #include "AssetManager/AssetStore.h"
-#include "src/Logger.hpp"
+#include "Logger.hpp"
 #include <SDL3/SDL.h>
 #include <memory>
 
-class Engine {
+class Core {
   public:
-    Engine();
-    ~Engine();
+    Core();
+    ~Core();
 
     void Run();
     void Setup();

@@ -9,7 +9,7 @@ engine_lib_dep = declare_dependency(
   dependencies: [sdl3_dep, sdl3_image_dep, sdl3_ttf_dep, spdlog],
 )
 
-engine_lib = shared_library(meson.project_name(), 'src/Engine.cpp', 'src/AssetManager/AssetStore.cpp',
+engine_lib = shared_library(meson.project_name(), 'src/Core/Core.cpp', 'src/Core/AssetManager/AssetStore.cpp',
            dependencies: engine_lib_dep)
 
-executable(meson.project_name(), 'src/Main.cpp', dependencies: engine_lib_dep, link_with: [engine_lib])
+executable(meson.project_name(), 'src/EntryPoint.cpp', dependencies: engine_lib_dep, link_with: [engine_lib])

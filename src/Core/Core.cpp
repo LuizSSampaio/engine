@@ -1,18 +1,18 @@
-#include "Engine.h"
+#include "Core.h"
 
 #include "AssetManager/AssetStore.h"
 #include "Logger.hpp"
 #include <memory>
 
-Engine::Engine() {
+Core::Core() {
     this->logger_ =
         std::make_unique<Logger>(Logger::Stdout{}, Logger::Stdout{});
     this->assetStore_ = std::make_unique<AssetStore>();
 }
 
-Engine::~Engine() {}
+Core::~Core() {}
 
-void Engine::Run() {
+void Core::Run() {
     this->Setup();
 
     while (!this->shouldClose_) {
@@ -27,7 +27,7 @@ void Engine::Run() {
     this->Destroy();
 }
 
-void Engine::Setup() {
+void Core::Setup() {
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
         LOG_CORE_CRITICAL("Failed initialize SDL3");
         return;
@@ -47,7 +47,7 @@ void Engine::Setup() {
     this->shouldClose_ = false;
 }
 
-void Engine::PollEvents() {
+void Core::PollEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
@@ -60,13 +60,13 @@ void Engine::PollEvents() {
     }
 }
 
-void Engine::Update() {}
+void Core::Update() {}
 
-void Engine::Render() {
+void Core::Render() {
     SDL_SetRenderDrawColor(this->renderer_, 21, 21, 21, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(this->renderer_);
 
     SDL_RenderPresent(this->renderer_);
 }
 
-void Engine::Destroy() {}
+void Core::Destroy() {}
