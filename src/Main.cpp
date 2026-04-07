@@ -1,8 +1,8 @@
-// #include "src/Engine.h"
+#include "src/Engine.h"
 
 int main(int argc, char *argv[]) {
-    // Engine engine;
-    // engine.Run();
+    Engine engine;
+    engine.Run();
 
     return 0;
 }
