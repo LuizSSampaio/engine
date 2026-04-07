@@ -1,8 +1,10 @@
 #include "Engine.h"
 
+#include "AssetManager/AssetStore.h"
 #include "Logger.h"
+#include <memory>
 
-Engine::Engine() {}
+Engine::Engine() { this->assetStore_ = std::make_unique<AssetStore>(); }
 
 Engine::~Engine() {}
 
