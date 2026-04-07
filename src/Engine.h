@@ -1,6 +1,7 @@
 #pragma once
 
 #include "AssetManager/AssetStore.h"
+#include "src/Logger.hpp"
 #include <SDL3/SDL.h>
 #include <memory>
 
@@ -21,6 +22,7 @@ class Engine {
     SDL_Renderer *renderer_;
 
     std::unique_ptr<AssetStore> assetStore_;
+    std::unique_ptr<Logger> logger_;
 
     double lastFrameTime_;
     bool shouldClose_;

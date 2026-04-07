@@ -1,10 +1,14 @@
 #include "Engine.h"
 
 #include "AssetManager/AssetStore.h"
-#include "Logger.h"
+#include "Logger.hpp"
 #include <memory>
 
-Engine::Engine() { this->assetStore_ = std::make_unique<AssetStore>(); }
+Engine::Engine() {
+    this->logger_ =
+        std::make_unique<Logger>(Logger::Stdout{}, Logger::Stdout{});
+    this->assetStore_ = std::make_unique<AssetStore>();
+}
 
 Engine::~Engine() {}
 
@@ -25,7 +29,7 @@ void Engine::Run() {
 
 void Engine::Setup() {
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
-        LOG_CRITICAL("Failed initialize SDL3");
+        LOG_CORE_CRITICAL("Failed initialize SDL3");
         return;
     }
 
@@ -34,7 +38,7 @@ void Engine::Setup() {
                                          SDL_WINDOW_RESIZABLE,
                                      &this->window_, &this->renderer_)) {
 
-        LOG_CRITICAL("Failed to create window/renderer");
+        LOG_CORE_CRITICAL("Failed to create window/renderer");
         return;
     }
 
