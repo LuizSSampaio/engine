@@ -5,5 +5,7 @@ sdl3_image_dep = dependency('sdl3_image')
 sdl3_ttf_dep = dependency('sdl3_ttf')
 spdlog = dependency('spdlog')
 
-executable(meson.project_name(), 'src/Main.cpp', 'src/Engine.cpp', 'src/AssetManager/AssetStore.cpp',
+engine_lib = shared_library(meson.project_name(), 'src/Engine.cpp', 'src/AssetManager/AssetStore.cpp',
            dependencies: [sdl3_dep, sdl3_image_dep, sdl3_ttf_dep, spdlog])
+
+executable(meson.project_name(), 'src/Main.cpp', link_with: engine_lib)
