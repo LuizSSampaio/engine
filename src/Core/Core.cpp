@@ -1,6 +1,6 @@
-#include "Core.h"
+#include "Core.hpp"
 
-#include "AssetManager/AssetStore.h"
+#include "AssetManager/AssetStore.hpp"
 #include "Logger.hpp"
 #include <memory>
 

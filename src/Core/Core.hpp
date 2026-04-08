@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AssetManager/AssetStore.h"
+#include "AssetManager/AssetStore.hpp"
 #include "Logger.hpp"
 #include <SDL3/SDL.h>
 #include <memory>
