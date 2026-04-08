@@ -1,7 +1,7 @@
-#include "Core.hpp"
+#include <Engine/Core/Core.hpp>
 
-#include "AssetManager/AssetStore.hpp"
-#include "Logger.hpp"
+#include <Engine/Core/AssetManager/AssetStore.hpp>
+#include <Engine/Core/Logger.hpp>
 #include <memory>
 
 Core::Core() {

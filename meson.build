@@ -5,8 +5,11 @@ sdl3_image_dep = dependency('sdl3_image')
 sdl3_ttf_dep = dependency('sdl3_ttf')
 spdlog = dependency('spdlog')
 
+incdir = include_directories('include')
+
 engine_lib_dep = declare_dependency(
   dependencies: [sdl3_dep, sdl3_image_dep, sdl3_ttf_dep, spdlog],
+  include_directories : incdir,
 )
 
 engine_lib = shared_library(meson.project_name(), 'src/Core/Core.cpp', 'src/Core/AssetManager/AssetStore.cpp',
