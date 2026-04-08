@@ -3,13 +3,13 @@ project('engine', 'cpp', default_options: ['default_library=static', 'cpp_std=c+
 sdl3_dep = dependency('sdl3')
 sdl3_image_dep = dependency('sdl3_image')
 sdl3_ttf_dep = dependency('sdl3_ttf')
-spdlog = dependency('spdlog')
+spdlog_dep = dependency('spdlog')
 entt_dep = dependency('entt')
 
 incdir = include_directories('include')
 
 engine_lib_dep = declare_dependency(
-  dependencies: [sdl3_dep, sdl3_image_dep, sdl3_ttf_dep, spdlog, entt_dep],
+  dependencies: [sdl3_dep, sdl3_image_dep, sdl3_ttf_dep, spdlog_dep, entt_dep],
   include_directories : incdir,
 )
 
