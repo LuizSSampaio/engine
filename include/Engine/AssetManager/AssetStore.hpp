@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 
+namespace Engine::AssetManager {
 class AssetStore {
   public:
     AssetStore();
@@ -18,3 +19,4 @@ class AssetStore {
   private:
     std::unordered_map<std::string, SDL_Texture *> data_;
 };
+} // namespace Engine::AssetManager

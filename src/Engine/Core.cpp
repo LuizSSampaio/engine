@@ -1,18 +1,18 @@
-#include <Engine/Core/Core.hpp>
+#include <Engine/Core.hpp>
 
-#include <Engine/Core/AssetManager/AssetStore.hpp>
-#include <Engine/Core/Logger.hpp>
+#include <Engine/AssetManager/AssetStore.hpp>
+#include <Engine/Logger.hpp>
 #include <memory>
 
-Core::Core() {
+Engine::Core::Core() {
     this->logger_ =
         std::make_unique<Logger>(Logger::Stdout{}, Logger::Stdout{});
-    this->assetStore_ = std::make_unique<AssetStore>();
+    this->assetStore_ = std::make_unique<AssetManager::AssetStore>();
 }
 
-Core::~Core() {}
+Engine::Core::~Core() {}
 
-void Core::Run() {
+void Engine::Core::Run() {
     this->Setup();
 
     while (!this->shouldClose_) {
@@ -27,7 +27,7 @@ void Core::Run() {
     this->Destroy();
 }
 
-void Core::Setup() {
+void Engine::Core::Setup() {
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
         LOG_CORE_CRITICAL("Failed initialize SDL3");
         return;
@@ -47,7 +47,7 @@ void Core::Setup() {
     this->shouldClose_ = false;
 }
 
-void Core::PollEvents() {
+void Engine::Core::PollEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
@@ -60,13 +60,13 @@ void Core::PollEvents() {
     }
 }
 
-void Core::Update() {}
+void Engine::Core::Update() {}
 
-void Core::Render() {
+void Engine::Core::Render() {
     SDL_SetRenderDrawColor(this->renderer_, 21, 21, 21, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(this->renderer_);
 
     SDL_RenderPresent(this->renderer_);
 }
 
-void Core::Destroy() {}
+void Engine::Core::Destroy() {}

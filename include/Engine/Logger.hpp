@@ -6,10 +6,7 @@
 #include <spdlog/spdlog.h>
 #include <variant>
 
-template <class... Ts> struct overloads : Ts... {
-    using Ts::operator()...;
-};
-
+namespace Engine {
 class Logger {
   public:
     struct Stdout {};
@@ -35,6 +32,7 @@ class Logger {
     std::shared_ptr<spdlog::logger> core_;
     std::shared_ptr<spdlog::logger> game_;
 };
+} // namespace Engine
 
 #define LOG_CORE_INFO(...) spdlog::get("core")->info(__VA_ARGS__)
 #define LOG_CORE_WARN(...) spdlog::get("core")->warn(__VA_ARGS__)

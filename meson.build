@@ -12,7 +12,7 @@ engine_lib_dep = declare_dependency(
   include_directories : incdir,
 )
 
-engine_lib = shared_library(meson.project_name(), 'src/Core/Core.cpp', 'src/Core/AssetManager/AssetStore.cpp',
+engine_lib = shared_library(meson.project_name(), 'src/Engine/Core.cpp', 'src/Engine/AssetManager/AssetStore.cpp',
            dependencies: engine_lib_dep)
 
 executable(meson.project_name(), 'src/EntryPoint.cpp', dependencies: engine_lib_dep, link_with: [engine_lib])
