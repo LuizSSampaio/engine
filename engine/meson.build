@@ -9,7 +9,9 @@ engine_lib_dep = declare_dependency(
   include_directories : incdir,
 )
 
-engine_lib = library(meson.project_name(), 'Engine/Core.cpp', 'Engine/AssetManager/AssetStore.cpp',
-           dependencies: engine_lib_dep)
+engine_lib = library(meson.project_name(),
+                     'Engine/Core.cpp', 'Engine/AssetManager/AssetStore.cpp',
+                     'Engine/Scenes/SceneManager.cpp', 'Engine/Scenes/Scene.cpp',
+                     dependencies: engine_lib_dep)
 
 engine_exec = executable(meson.project_name(), 'EntryPoint.cpp', dependencies: engine_lib_dep, link_with: [engine_lib])
