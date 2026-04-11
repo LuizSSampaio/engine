@@ -1,6 +1,5 @@
-#include <Engine/Core.hpp>
-
 #include <Engine/AssetManager/AssetStore.hpp>
+#include <Engine/Core.hpp>
 #include <Engine/Logger.hpp>
 #include <memory>
 
@@ -10,14 +9,15 @@ Engine::Core::Core() {
     this->assetStore_ = std::make_unique<AssetManager::AssetStore>();
 }
 
-Engine::Core::~Core() {}
-
 void Engine::Core::Run() {
     this->Setup();
 
     while (!this->shouldClose_) {
-        double deltaTime = (SDL_GetTicks() - this->lastFrameTime_) / 1000.0;
-        this->lastFrameTime_ = SDL_GetTicks();
+        constexpr double secsToMilli = 1000.0;
+        double deltaTime =
+            (static_cast<double>(SDL_GetTicks()) - this->lastFrameTime_) /
+            secsToMilli;
+        this->lastFrameTime_ = static_cast<double>(SDL_GetTicks());
 
         this->PollEvents();
         this->Update();
@@ -33,11 +33,12 @@ void Engine::Core::Setup() {
         return;
     }
 
-    if (!SDL_CreateWindowAndRenderer("Game Engine", 800, 600,
-                                     SDL_WINDOW_BORDERLESS |
-                                         SDL_WINDOW_RESIZABLE,
-                                     &this->window_, &this->renderer_)) {
-
+    constexpr int defaultWindowWidth = 800;
+    constexpr int defaultWindowHeight = 600;
+    if (!SDL_CreateWindowAndRenderer(
+            "Game Engine", defaultWindowWidth, defaultWindowHeight,
+            SDL_WINDOW_BORDERLESS | SDL_WINDOW_RESIZABLE, &this->window_,
+            &this->renderer_)) {
         LOG_CORE_CRITICAL("Failed to create window/renderer");
         return;
     }
@@ -51,11 +52,11 @@ void Engine::Core::PollEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
-        case SDL_EVENT_QUIT:
-            this->shouldClose_ = true;
-            break;
-        default:
-            break;
+            case SDL_EVENT_QUIT:
+                this->shouldClose_ = true;
+                break;
+            default:
+                break;
         }
     }
 }

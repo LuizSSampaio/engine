@@ -5,18 +5,18 @@
 
 namespace Engine::Scenes {
 class Scene {
-  public:
+public:
     bool isActive;
-    entt::registry registry_;
+    entt::registry registry;
 
-    Scene(std::string id) : id_(id) {};
+    Scene(std::string id) : id_(std::move(id)) {};
     ~Scene() = default;
 
     void Setup();
     void Update();
     void Destroy();
 
-  private:
+private:
     std::string id_;
 };
-} // namespace Engine::Scenes
+}  // namespace Engine::Scenes

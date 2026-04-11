@@ -1,14 +1,15 @@
 #pragma once
 
-#include <memory>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_sinks.h>
 #include <spdlog/spdlog.h>
+
+#include <memory>
 #include <variant>
 
 namespace Engine {
 class Logger {
-  public:
+public:
     struct Stdout {};
     struct File {
         std::string filepath;
@@ -28,11 +29,11 @@ class Logger {
     }
     ~Logger() = default;
 
-  private:
+private:
     std::shared_ptr<spdlog::logger> core_;
     std::shared_ptr<spdlog::logger> game_;
 };
-} // namespace Engine
+}  // namespace Engine
 
 #define LOG_CORE_INFO(...) spdlog::get("core")->info(__VA_ARGS__)
 #define LOG_CORE_WARN(...) spdlog::get("core")->warn(__VA_ARGS__)

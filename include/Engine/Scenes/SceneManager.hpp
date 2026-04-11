@@ -8,7 +8,7 @@
 
 namespace Engine::Scenes {
 class Manager {
-  public:
+public:
     enum Error {
         SceneNotLoaded,
         SceneIsActive,
@@ -17,11 +17,11 @@ class Manager {
     Manager() = default;
     ~Manager() = default;
 
-    std::optional<std::shared_ptr<Scene>> LoadScene(const std::string id);
-    std::optional<std::shared_ptr<Scene>> GetScene(const std::string id) const;
-    std::optional<Manager::Error> UnloadScene(const std::string id);
+    std::optional<std::shared_ptr<Scene>> LoadScene(const std::string& id);
+    std::optional<std::shared_ptr<Scene>> GetScene(const std::string& id) const;
+    std::optional<Manager::Error> UnloadScene(const std::string& id);
 
-  private:
+private:
     std::unordered_map<std::string, std::shared_ptr<Scene>> loadedScenes_;
 };
-} // namespace Engine::Scenes
+}  // namespace Engine::Scenes
