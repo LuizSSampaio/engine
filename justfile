@@ -1,7 +1,7 @@
 default: build
 
 builddir := 'build'
-binName := 'engine'
+binName := 'engine/engine'
 
 build:
     meson compile -C {{ builddir }}
