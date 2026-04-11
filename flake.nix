@@ -56,6 +56,7 @@
           nativeBuildInputs = with pkgs; [
             cmake
             meson
+            mesonlsp
             ninja
             clang
             lldb
