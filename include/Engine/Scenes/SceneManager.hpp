@@ -9,7 +9,7 @@
 namespace Engine::Scenes {
 class Manager {
 public:
-    enum Error {
+    enum Error : std::uint8_t {
         SceneNotLoaded,
         SceneIsActive,
     };

@@ -9,7 +9,7 @@
 namespace Engine::ECS {
 class Entity {
 public:
-    enum Error {
+    enum Error : std::uint8_t {
         SceneIsUnloaded,
         ComponentAlreadyExist,
     };
