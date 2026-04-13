@@ -3,11 +3,14 @@
 #include <entt/entt.hpp>
 #include <string>
 
+namespace Engine::ECS {
+class Entity;
+}
+
 namespace Engine::Scenes {
 class Scene {
 public:
     bool isActive;
-    entt::registry registry;
 
     Scene(std::string id) : id_(std::move(id)) {};
     ~Scene() = default;
@@ -18,5 +21,8 @@ public:
 
 private:
     std::string id_;
+    entt::registry registry_;
+
+    friend class Engine::ECS::Entity;
 };
 }  // namespace Engine::Scenes
