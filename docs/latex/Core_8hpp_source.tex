@@ -1,0 +1,38 @@
+\doxysection{Core.\+hpp}
+\hypertarget{Core_8hpp_source}{}\label{Core_8hpp_source}\index{include/Engine/Core.hpp@{include/Engine/Core.hpp}}
+\doxymbox{\hyperlink{Core_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{AssetStore_8hpp}{Engine/AssetManager/AssetStore.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{Logger_8hpp}{Engine/Logger.hpp}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine}{Engine}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1Core_a706b1589c7441ca20081fd72ded54810}{Core}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Core_a706b1589c7441ca20081fd72ded54810}{Core}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Core_a8d31f7c8c6da15f8332e6d68d26e700f}{\string~Core}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_a503980c906b25d5256827cff7c73905f}{Run}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_ab9c1267558dac27f71db63da306dd835}{Setup}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_a8f123cd8ae9601140fb37f7008c21fe3}{PollEvents}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_a43ab4bc128fa4028151eadb50099ce38}{Update}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_abf92a12432ccaa7588fed6011ee66469}{Render}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Core_a6d213ca764c0d3a3014639b72c15957b}{Destroy}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ SDL\_Window*\ window\_;}
+\DoxyCodeLine{00024\ \ \ \ \ SDL\_Renderer*\ renderer\_;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::unique\_ptr<AssetManager::AssetStore>\ assetStore\_;}
+\DoxyCodeLine{00027\ \ \ \ \ std::unique\_ptr<Logger>\ logger\_;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ lastFrameTime\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ shouldClose\_;}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ \}\ \ \textcolor{comment}{//\ namespace\ Engine}}
+
+\end{DoxyCode}

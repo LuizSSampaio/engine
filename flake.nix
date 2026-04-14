@@ -62,12 +62,28 @@
             lldb
             pkg-config
             just
+            doxygen
+            python3
+            python3Packages.pip
           ];
 
           buildInputs = runtimeLibs;
 
           shellHook = ''
             export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath runtimeLibs}:$LD_LIBRARY_PATH"
+
+            # Documentation virtual environment
+            if [ ! -d .venv ]; then
+              echo "Creating Python venv for docs..."
+              python3 -m venv .venv
+              .venv/bin/pip install --quiet \
+              sphinx \
+              breathe \
+              exhale \
+              furo
+            fi
+
+            export PATH="$PWD/.venv/bin:$PATH"
           '';
         };
       }

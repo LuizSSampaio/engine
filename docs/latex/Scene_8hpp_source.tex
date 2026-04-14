@@ -1,0 +1,37 @@
+\doxysection{Scene.\+hpp}
+\hypertarget{Scene_8hpp_source}{}\label{Scene_8hpp_source}\index{include/Engine/Scenes/Scene.hpp@{include/Engine/Scenes/Scene.hpp}}
+\doxymbox{\hyperlink{Scene_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <entt/entt.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine_1_1ECS}{Engine::ECS}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity}{Entity}};}
+\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine_1_1Scenes}{Engine::Scenes}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a61ef7c0f593c80ca41f778eb9cbc4e18}{Scene}}\ :\ std::enable\_shared\_from\_this<Scene>\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a5c3042ece304004e72eccade54724144}{isActive}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a61ef7c0f593c80ca41f778eb9cbc4e18}{Scene}}(std::string\ \textcolor{keywordtype}{id})\ :\ id\_(std::move(id))\ \{\};}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a77e8bc0e24b65a7c856bc483ba853d3a}{\string~Scene}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a07ab8a8ea32ecea3a5ae7432353ed18b}{Setup}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a605762bd8af3e4aab36f2994c8d68d21}{Update}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_a2dc2ca989bceef7ee00bb0910045546f}{Destroy}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity}{ECS::Entity}}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene_abd061b4e6afc71ffe12d209e937efdb7}{CreateEntity}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ id\_;}
+\DoxyCodeLine{00027\ \ \ \ \ entt::registry\ registry\_;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity}{Engine::ECS::Entity}};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ \}\ \ \textcolor{comment}{//\ namespace\ Engine::Scenes}}
+
+\end{DoxyCode}

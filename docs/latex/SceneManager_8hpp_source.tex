@@ -1,0 +1,33 @@
+\doxysection{Scene\+Manager.\+hpp}
+\hypertarget{SceneManager_8hpp_source}{}\label{SceneManager_8hpp_source}\index{include/Engine/Scenes/SceneManager.hpp@{include/Engine/Scenes/SceneManager.hpp}}
+\doxymbox{\hyperlink{SceneManager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{Scene_8hpp}{Engine/Scenes/Scene.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine_1_1Scenes}{Engine::Scenes}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a5263cba58844c4378f1938d7e45a89aa}{Manager}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a8be2db50765764efd8c26ce7f1036e01}{Error}}\ :\ std::uint8\_t\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a8be2db50765764efd8c26ce7f1036e01ab3e3027f6cb9c4a78dfff1def9bb6898}{SceneNotLoaded}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a8be2db50765764efd8c26ce7f1036e01a12d134ff65cdd346b88ef000d2acdd29}{SceneIsActive}},}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a5263cba58844c4378f1938d7e45a89aa}{Manager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_ab9d056e3e5a280e69cf6d3d861f6e67c}{\string~Manager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::optional<std::shared\_ptr<Scene>>\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a0eb17024ccb0aecf1404a25ea3558145}{LoadScene}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00021\ \ \ \ \ std::optional<std::shared\_ptr<Scene>>\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a378812b34b792514d0a1e59420931dc6}{GetScene}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ std::optional<Manager::Error>\ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Manager_a343b327707765b90754d8cb820131327}{UnloadScene}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Scene>>\ loadedScenes\_;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ \}\ \ \textcolor{comment}{//\ namespace\ Engine::Scenes}}
+
+\end{DoxyCode}

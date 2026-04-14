@@ -1,0 +1,14 @@
+.. _exhale_define_Logger_8hpp_1ad4a9117ce894e3319e903142347a0f63:
+
+Define LOG_ERROR
+================
+
+- Defined in :ref:`file_include_Engine_Logger.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: LOG_ERROR
+   :project: Engine

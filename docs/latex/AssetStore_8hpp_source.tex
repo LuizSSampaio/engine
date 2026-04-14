@@ -1,0 +1,29 @@
+\doxysection{Asset\+Store.\+hpp}
+\hypertarget{AssetStore_8hpp_source}{}\label{AssetStore_8hpp_source}\index{include/Engine/AssetManager/AssetStore.hpp@{include/Engine/AssetManager/AssetStore.hpp}}
+\doxymbox{\hyperlink{AssetStore_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine_1_1AssetManager}{Engine::AssetManager}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_a12f4f6b25c206fc0193a73dfc35db894}{AssetStore}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_a12f4f6b25c206fc0193a73dfc35db894}{AssetStore}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_ad5aefd904dc8999571271057abcafc07}{\string~AssetStore}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_a354d116c8dee6372fac954ba913c9e21}{AddAsset}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},\ SDL\_Renderer*\ renderer,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ filepath);}
+\DoxyCodeLine{00016\ \ \ \ \ SDL\_Texture*\ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_a4249179252b526a5c588bc0f93a8e848}{GetAsset}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_a145f9d3d60b63d2399b189532b226ba3}{DeleteAsset}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEngine_1_1AssetManager_1_1AssetStore_ac55099aa271d29832ed44a863ec17b76}{Clear}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::unordered\_map<std::string,\ SDL\_Texture*>\ data\_;}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ \}\ \ \textcolor{comment}{//\ namespace\ Engine::AssetManager}}
+
+\end{DoxyCode}

@@ -1,0 +1,159 @@
+\doxysection{include/\+\+Engine/\+\+Logger.hpp File Reference}
+\hypertarget{Logger_8hpp}{}\label{Logger_8hpp}\index{include/Engine/Logger.hpp@{include/Engine/Logger.hpp}}
+{\ttfamily \+\#include $<$spdlog/\+sinks/\+basic\+\_\+file\+\_\+sink.\+h$>$}\newline
+{\ttfamily \+\#include $<$spdlog/\+sinks/\+stdout\+\_\+sinks.\+h$>$}\newline
+{\ttfamily \+\#include $<$spdlog/\+spdlog.\+h$>$}\newline
+{\ttfamily \+\#include $<$memory$>$}\newline
+{\ttfamily \+\#include $<$variant$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classEngine_1_1Logger}{Engine::\+\+Logger}}
+\item 
+struct \doxymbox{\hyperlink{structEngine_1_1Logger_1_1Stdout}{Engine::\+\+Logger::\+\+Stdout}}
+\item 
+struct \doxymbox{\hyperlink{structEngine_1_1Logger_1_1File}{Engine::\+\+Logger::\+\+File}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespaceEngine}{Engine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_a8538cd92b0b576e168d19824a6fc866f}{LOG\+\_\+\+CORE\+\_\+\+INFO}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_a19d6681b2ffd31e5ea447610217965bf}{LOG\+\_\+\+CORE\+\_\+\+WARN}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_aebaa368e5eeb63225b621cb047cea37c}{LOG\+\_\+\+CORE\+\_\+\+ERROR}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_ad044ffeb9ff9b6e1968c05377a5a4a40}{LOG\+\_\+\+CORE\+\_\+\+CRITICAL}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_aea6cd8878f68ad0fc15694141438da38}{LOG\+\_\+\+CORE\+\_\+\+TRACE}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_a378e28bfcb78d17285210d6bbb70a083}{LOG\+\_\+\+INFO}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_add82efa459e0af380b68522c29b9fd44}{LOG\+\_\+\+WARN}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_ad4a9117ce894e3319e903142347a0f63}{LOG\+\_\+\+ERROR}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_a4091a2d7d849a8b5eded40d8723b8768}{LOG\+\_\+\+CRITICAL}}(...)
+\item 
+\+\#define \doxymbox{\hyperlink{Logger_8hpp_a58c994180e09d2f6400133b19b1d7036}{LOG\+\_\+\+TRACE}}(...)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{Logger_8hpp_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{Logger_8hpp_ad044ffeb9ff9b6e1968c05377a5a4a40}\index{Logger.hpp@{Logger.hpp}!LOG\_CORE\_CRITICAL@{LOG\_CORE\_CRITICAL}}
+\index{LOG\_CORE\_CRITICAL@{LOG\_CORE\_CRITICAL}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CORE\_CRITICAL}{LOG\_CORE\_CRITICAL}}
+{\footnotesize\ttfamily \label{Logger_8hpp_ad044ffeb9ff9b6e1968c05377a5a4a40} 
+\+\#define LOG\+\_\+\+CORE\+\_\+\+CRITICAL(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}core"{}})-\/>critical(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_aebaa368e5eeb63225b621cb047cea37c}\index{Logger.hpp@{Logger.hpp}!LOG\_CORE\_ERROR@{LOG\_CORE\_ERROR}}
+\index{LOG\_CORE\_ERROR@{LOG\_CORE\_ERROR}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CORE\_ERROR}{LOG\_CORE\_ERROR}}
+{\footnotesize\ttfamily \label{Logger_8hpp_aebaa368e5eeb63225b621cb047cea37c} 
+\+\#define LOG\+\_\+\+CORE\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}core"{}})-\/>error(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_a8538cd92b0b576e168d19824a6fc866f}\index{Logger.hpp@{Logger.hpp}!LOG\_CORE\_INFO@{LOG\_CORE\_INFO}}
+\index{LOG\_CORE\_INFO@{LOG\_CORE\_INFO}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CORE\_INFO}{LOG\_CORE\_INFO}}
+{\footnotesize\ttfamily \label{Logger_8hpp_a8538cd92b0b576e168d19824a6fc866f} 
+\+\#define LOG\+\_\+\+CORE\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}core"{}})-\/>info(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_aea6cd8878f68ad0fc15694141438da38}\index{Logger.hpp@{Logger.hpp}!LOG\_CORE\_TRACE@{LOG\_CORE\_TRACE}}
+\index{LOG\_CORE\_TRACE@{LOG\_CORE\_TRACE}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CORE\_TRACE}{LOG\_CORE\_TRACE}}
+{\footnotesize\ttfamily \label{Logger_8hpp_aea6cd8878f68ad0fc15694141438da38} 
+\+\#define LOG\+\_\+\+CORE\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}core"{}})-\/>trace(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_a19d6681b2ffd31e5ea447610217965bf}\index{Logger.hpp@{Logger.hpp}!LOG\_CORE\_WARN@{LOG\_CORE\_WARN}}
+\index{LOG\_CORE\_WARN@{LOG\_CORE\_WARN}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CORE\_WARN}{LOG\_CORE\_WARN}}
+{\footnotesize\ttfamily \label{Logger_8hpp_a19d6681b2ffd31e5ea447610217965bf} 
+\+\#define LOG\+\_\+\+CORE\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}core"{}})-\/>warn(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_a4091a2d7d849a8b5eded40d8723b8768}\index{Logger.hpp@{Logger.hpp}!LOG\_CRITICAL@{LOG\_CRITICAL}}
+\index{LOG\_CRITICAL@{LOG\_CRITICAL}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CRITICAL}{LOG\_CRITICAL}}
+{\footnotesize\ttfamily \label{Logger_8hpp_a4091a2d7d849a8b5eded40d8723b8768} 
+\+\#define LOG\+\_\+\+CRITICAL(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}game"{}})-\/>critical(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_ad4a9117ce894e3319e903142347a0f63}\index{Logger.hpp@{Logger.hpp}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \label{Logger_8hpp_ad4a9117ce894e3319e903142347a0f63} 
+\+\#define LOG\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}game"{}})-\/>error(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_a378e28bfcb78d17285210d6bbb70a083}\index{Logger.hpp@{Logger.hpp}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \label{Logger_8hpp_a378e28bfcb78d17285210d6bbb70a083} 
+\+\#define LOG\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}game"{}})-\/>info(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_a58c994180e09d2f6400133b19b1d7036}\index{Logger.hpp@{Logger.hpp}!LOG\_TRACE@{LOG\_TRACE}}
+\index{LOG\_TRACE@{LOG\_TRACE}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_TRACE}{LOG\_TRACE}}
+{\footnotesize\ttfamily \label{Logger_8hpp_a58c994180e09d2f6400133b19b1d7036} 
+\+\#define LOG\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}game"{}})-\/>trace(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{Logger_8hpp_add82efa459e0af380b68522c29b9fd44}\index{Logger.hpp@{Logger.hpp}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!Logger.hpp@{Logger.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \label{Logger_8hpp_add82efa459e0af380b68522c29b9fd44} 
+\+\#define LOG\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{spdlog::get(\textcolor{stringliteral}{"{}game"{}})-\/>warn(\_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}

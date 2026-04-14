@@ -1,0 +1,54 @@
+\doxysection{Logger.\+hpp}
+\hypertarget{Logger_8hpp_source}{}\label{Logger_8hpp_source}\index{include/Engine/Logger.hpp@{include/Engine/Logger.hpp}}
+\doxymbox{\hyperlink{Logger_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <spdlog/sinks/basic\_file\_sink.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <spdlog/sinks/stdout\_sinks.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine}{Engine}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1Logger_a3cdf0feb9ddfaeee77ce1d0ea99ba261}{Logger}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structEngine_1_1Logger_1_1Stdout}{Stdout}}\ \{\};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structEngine_1_1Logger_1_1File}{File}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::string\ \doxymbox{\hyperlink{structEngine_1_1Logger_1_1File_a960dfad719a9f396db50501b1955be40}{filepath}};}
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{classEngine_1_1Logger_afc9b231c674446fe187090bf61b8c8e8}{Destination}}\ =\ std::variant<Stdout,\ File>;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Logger_a3cdf0feb9ddfaeee77ce1d0ea99ba261}{Logger}}(\doxymbox{\hyperlink{classEngine_1_1Logger_afc9b231c674446fe187090bf61b8c8e8}{Destination}}\ coreDst\ =\ \doxymbox{\hyperlink{structEngine_1_1Logger_1_1Stdout}{Stdout}}\{\},\ \doxymbox{\hyperlink{classEngine_1_1Logger_afc9b231c674446fe187090bf61b8c8e8}{Destination}}\ gameDst\ =\ Stdout\{\})\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ this-\/>core\_\ =\ coreDst.index()\ ==\ 0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ spdlog::stdout\_logger\_mt(\textcolor{stringliteral}{"{}core"{}})}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ spdlog::basic\_logger\_mt(}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}core"{}},\ std::get<File>(coreDst).filepath);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ this-\/>game\_\ =\ gameDst.index()\ ==\ 0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ spdlog::stdout\_logger\_mt(\textcolor{stringliteral}{"{}game"{}})}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ spdlog::basic\_logger\_mt(}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}game"{}},\ std::get<File>(gameDst).filepath);}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1Logger_ae2e3366c9bc0f23dab1053a2afd054be}{\string~Logger}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ std::shared\_ptr<spdlog::logger>\ core\_;}
+\DoxyCodeLine{00034\ \ \ \ \ std::shared\_ptr<spdlog::logger>\ game\_;}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ \}\ \ \textcolor{comment}{//\ namespace\ Engine}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LOG\_CORE\_INFO(...)\ spdlog::get("{}core"{})-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LOG\_CORE\_WARN(...)\ spdlog::get("{}core"{})-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LOG\_CORE\_ERROR(...)\ spdlog::get("{}core"{})-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ LOG\_CORE\_CRITICAL(...)\ spdlog::get("{}core"{})-\/>critical(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ LOG\_CORE\_TRACE(...)\ spdlog::get("{}core"{})-\/>trace(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)\ spdlog::get("{}game"{})-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)\ spdlog::get("{}game"{})-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)\ spdlog::get("{}game"{})-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ LOG\_CRITICAL(...)\ spdlog::get("{}game"{})-\/>critical(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ LOG\_TRACE(...)\ spdlog::get("{}game"{})-\/>trace(\_\_VA\_ARGS\_\_)}}
+
+\end{DoxyCode}
