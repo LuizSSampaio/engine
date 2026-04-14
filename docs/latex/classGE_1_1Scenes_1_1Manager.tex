@@ -1,0 +1,96 @@
+\doxysection{GE::\+Scenes::\+Manager Class Reference}
+\hypertarget{classGE_1_1Scenes_1_1Manager}{}\label{classGE_1_1Scenes_1_1Manager}\index{GE::Scenes::Manager@{GE::Scenes::Manager}}
+
+
+{\ttfamily \+\#include $<$Scene\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2}{Error}} :\+ std::\+uint8\+\_\+t \{ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a8c5c3fc4e4cb0e7000d5249eb4e9c687}{Scene\+Not\+Loaded}}
+, \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a042d48214bf89ffb24fe194ac7b20782}{Scene\+Is\+Active}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_a97259d4a1510fdfdf1e62019561d7bfb}{Manager}} ()=default
+\item 
+\doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_a9064668deb37845f7cd54670f4b36473}{\texorpdfstring{$\sim$}{\string~}\+Manager}} ()=default
+\item 
+std::\+optional$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scene}} $>$ $>$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_afcd748ed535d878615ade80551132b10}{Load\+Scene}} (const std::\+string \&id)
+\item 
+std::\+optional$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scene}} $>$ $>$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_a89824ad1397297622a5151e1e1b9f3ff}{Get\+Scene}} (const std::\+string \&id) const
+\item 
+std::\+optional$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2}{Manager::\+\+Error}} $>$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_a310269aa4c8c6426f0da4a0e4cdd43c9}{Unload\+Scene}} (const std::\+string \&id)
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!Error@{Error}}
+\index{Error@{Error}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{Error}{Error}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2} 
+enum \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2}{GE::\+\+Scenes::\+\+Manager::\+\+Error}} :\+ std::\+uint8\+\_\+t}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SceneNotLoaded@{SceneNotLoaded}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\index{GE::Scenes::Manager@{GE::Scenes::Manager}!SceneNotLoaded@{SceneNotLoaded}}
+}\Hypertarget{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a8c5c3fc4e4cb0e7000d5249eb4e9c687}\label{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a8c5c3fc4e4cb0e7000d5249eb4e9c687} 
+Scene\+Not\+Loaded&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SceneIsActive@{SceneIsActive}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\index{GE::Scenes::Manager@{GE::Scenes::Manager}!SceneIsActive@{SceneIsActive}}
+}\Hypertarget{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a042d48214bf89ffb24fe194ac7b20782}\label{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2a042d48214bf89ffb24fe194ac7b20782} 
+Scene\+Is\+Active&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_a97259d4a1510fdfdf1e62019561d7bfb}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!Manager@{Manager}}
+\index{Manager@{Manager}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{Manager()}{Manager()}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_a97259d4a1510fdfdf1e62019561d7bfb} 
+GE::\+\+Scenes::\+\+Manager::\+\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classGE_1_1Scenes_1_1Manager_a9064668deb37845f7cd54670f4b36473}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!````~Manager@{\texorpdfstring{$\sim$}{\string~}Manager}}
+\index{````~Manager@{\texorpdfstring{$\sim$}{\string~}Manager}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Manager()}{\string~Manager()}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_a9064668deb37845f7cd54670f4b36473} 
+GE::\+\+Scenes::\+\+Manager::\+\texorpdfstring{$\sim$}{\string~}\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGE_1_1Scenes_1_1Manager_a89824ad1397297622a5151e1e1b9f3ff}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_a89824ad1397297622a5151e1e1b9f3ff} 
+std::\+optional$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scene}} $>$ $>$ GE::\+\+Scenes::\+\+Manager::\+\+Get\+Scene (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{id}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGE_1_1Scenes_1_1Manager_afcd748ed535d878615ade80551132b10}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!LoadScene@{LoadScene}}
+\index{LoadScene@{LoadScene}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{LoadScene()}{LoadScene()}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_afcd748ed535d878615ade80551132b10} 
+std::\+optional$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scene}} $>$ $>$ GE::\+\+Scenes::\+\+Manager::\+\+Load\+Scene (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGE_1_1Scenes_1_1Manager_a310269aa4c8c6426f0da4a0e4cdd43c9}\index{GE::Scenes::Manager@{GE::Scenes::Manager}!UnloadScene@{UnloadScene}}
+\index{UnloadScene@{UnloadScene}!GE::Scenes::Manager@{GE::Scenes::Manager}}
+\doxysubsubsection{\texorpdfstring{UnloadScene()}{UnloadScene()}}
+{\footnotesize\ttfamily \label{classGE_1_1Scenes_1_1Manager_a310269aa4c8c6426f0da4a0e4cdd43c9} 
+std::\+optional$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Manager_ac28804864ee1f6e0f4e8b48ba542a7d2}{Manager::\+\+Error}} $>$ GE::\+\+Scenes::\+\+Manager::\+\+Unload\+Scene (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{id}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\+GE/\+\+Scenes/\+\doxymbox{\hyperlink{SceneManager_8hpp}{Scene\+Manager.\+hpp}}\end{DoxyCompactItemize}

@@ -22,7 +22,7 @@ Class Documentation
 
 
 .. doxygenclass:: Engine::Logger
-   :project: Engine
+   :project: Goiaba Engine
    :members:
    :protected-members:
    :undoc-members:

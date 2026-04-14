@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Engine'
+project = 'Goiaba Engine'
 copyright = '2026, Luiz Henrique Silva Sampaio'
 author = 'Luiz Henrique Silva Sampaio'
 
@@ -18,8 +18,8 @@ extensions = ['breathe', 'exhale']
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-breathe_projects = {"Engine": "../docs/xml"}
-breathe_default_project = "Engine"
+breathe_projects = {"Goiaba Engine": "../docs/xml"}
+breathe_default_project = "Goiaba Engine"
 breathe_implementation_filename_extensions = ['.cpp']
 
 exhale_args = {

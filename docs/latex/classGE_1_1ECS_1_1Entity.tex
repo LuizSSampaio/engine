@@ -1,0 +1,182 @@
+\doxysection{GE::\+ECS::\+Entity Class Reference}
+\hypertarget{classGE_1_1ECS_1_1Entity}{}\label{classGE_1_1ECS_1_1Entity}\index{GE::ECS::Entity@{GE::ECS::Entity}}
+
+
+Helper class to manipulate the \doxylink{namespaceGE_1_1ECS}{ECS} in a easy way.  
+
+
+
+
+{\ttfamily \+\#include $<$Entity.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} :\+ std::\+uint8\+\_\+t \{ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{Scene\+Is\+Unloaded}}
+, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059a484a251bb0abe44859e67e9a0df61be2}{Component\+Already\+Exist}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a22a9ba0ed1e4dc51001ff5850eba775e}{Entity}} (entt::\+entity entity, std::\+weak\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scenes::\+\+Scene}} $>$ scene)
+\begin{DoxyCompactList}\small\item\em Convert entt::\+entity to our \doxylink{classGE_1_1ECS_1_1Entity}{Entity} class. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a51bc9d32b758abc58f38cb8137f3ad1e}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=default
+\item 
+{\footnotesize template$<$typename TComponent, typename... TArgs$>$ }\\std::\+expected$<$ TComponent \&, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a03d2ba3c8118ecca8369edef4a0316d0}{Add\+Component}} (TArgs \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a component to the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TComponent$>$ }\\std::\+optional$<$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a0874b820e2c555cc9e0699e961ee79d1}{Remove\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Remove a component from the entity If the entity don\textquotesingle{}t has the component it\textquotesingle{}ll be a noop. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TComponent$>$ }\\std::\+expected$<$ bool, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088}{Has\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Check if entity has component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TComponent$>$ }\\std::\+expected$<$ std::\+optional$<$ TComponent \& $>$, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a0e5e5c92d602a8ac979ac04ada6a6588}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Get component from entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper class to manipulate the \doxylink{namespaceGE_1_1ECS}{ECS} in a easy way. 
+
+\label{doc-enum-members}
+\Hypertarget{classGE_1_1ECS_1_1Entity_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}\index{GE::ECS::Entity@{GE::ECS::Entity}!Error@{Error}}
+\index{Error@{Error}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Error}{Error}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059} 
+enum \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{GE::\+\+ECS::\+\+Entity::\+\+Error}} :\+ std::\+uint8\+\_\+t}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SceneIsUnloaded@{SceneIsUnloaded}!GE::ECS::Entity@{GE::ECS::Entity}}
+\index{GE::ECS::Entity@{GE::ECS::Entity}!SceneIsUnloaded@{SceneIsUnloaded}}
+}\Hypertarget{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}\label{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832} 
+Scene\+Is\+Unloaded&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ComponentAlreadyExist@{ComponentAlreadyExist}!GE::ECS::Entity@{GE::ECS::Entity}}
+\index{GE::ECS::Entity@{GE::ECS::Entity}!ComponentAlreadyExist@{ComponentAlreadyExist}}
+}\Hypertarget{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059a484a251bb0abe44859e67e9a0df61be2}\label{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059a484a251bb0abe44859e67e9a0df61be2} 
+Component\+Already\+Exist&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-constructors}
+\Hypertarget{classGE_1_1ECS_1_1Entity_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGE_1_1ECS_1_1Entity_a22a9ba0ed1e4dc51001ff5850eba775e}\index{GE::ECS::Entity@{GE::ECS::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_a22a9ba0ed1e4dc51001ff5850eba775e} 
+GE::\+\+ECS::\+\+Entity::\+\+Entity (\begin{DoxyParamCaption}\item[{entt::\+entity}]{entity}{, }\item[{std::\+weak\+\_\+ptr$<$ \doxymbox{\hyperlink{classGE_1_1Scenes_1_1Scene}{Scenes::\+\+Scene}} $>$}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert entt::\+entity to our \doxylink{classGE_1_1ECS_1_1Entity}{Entity} class. 
+
+\begin{DoxyWarning}{Warning}
+Don\textquotesingle{}t use it directally, use the Scene Create\+Entity() 
+\end{DoxyWarning}
+\Hypertarget{classGE_1_1ECS_1_1Entity_a51bc9d32b758abc58f38cb8137f3ad1e}\index{GE::ECS::Entity@{GE::ECS::Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
+\index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_a51bc9d32b758abc58f38cb8137f3ad1e} 
+GE::\+\+ECS::\+\+Entity::\+\texorpdfstring{$\sim$}{\string~}\+Entity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classGE_1_1ECS_1_1Entity_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGE_1_1ECS_1_1Entity_a03d2ba3c8118ecca8369edef4a0316d0}\index{GE::ECS::Entity@{GE::ECS::Entity}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_a03d2ba3c8118ecca8369edef4a0316d0} 
+template$<$typename TComponent, typename... TArgs$>$ \\
+std::\+expected$<$ TComponent \&, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ GE::\+\+ECS::\+\+Entity::\+\+Add\+Component (\begin{DoxyParamCaption}\item[{TArgs \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a component to the entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be added \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to be forwarded to TComponent contructor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference of the added component if success 
+
+\doxylink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error} enum value related to the issue 
+\end{DoxyReturn}
+\Hypertarget{classGE_1_1ECS_1_1Entity_a0e5e5c92d602a8ac979ac04ada6a6588}\index{GE::ECS::Entity@{GE::ECS::Entity}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_a0e5e5c92d602a8ac979ac04ada6a6588} 
+template$<$typename TComponent$>$ \\
+std::\+expected$<$ std::\+optional$<$ TComponent \& $>$, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ GE::\+\+ECS::\+\+Entity::\+\+Get\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get component from entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be get \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Component reference if exist 
+
+\doxylink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error} enum value related to the issue 
+\end{DoxyReturn}
+\Hypertarget{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088}\index{GE::ECS::Entity@{GE::ECS::Entity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088} 
+template$<$typename TComponent$>$ \\
+std::\+expected$<$ bool, \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ GE::\+\+ECS::\+\+Entity::\+\+Has\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if entity has component. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be checked \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+If the \doxylink{classGE_1_1ECS_1_1Entity}{Entity} has the TComponent 
+
+\doxylink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error} enum value related to the issue 
+\end{DoxyReturn}
+\Hypertarget{classGE_1_1ECS_1_1Entity_a0874b820e2c555cc9e0699e961ee79d1}\index{GE::ECS::Entity@{GE::ECS::Entity}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!GE::ECS::Entity@{GE::ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily \label{classGE_1_1ECS_1_1Entity_a0874b820e2c555cc9e0699e961ee79d1} 
+template$<$typename TComponent$>$ \\
+std::\+optional$<$ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}} $>$ GE::\+\+ECS::\+\+Entity::\+\+Remove\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a component from the entity If the entity don\textquotesingle{}t has the component it\textquotesingle{}ll be a noop. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be removed \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+May return an \doxylink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error} if Scene is invalid 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\+GE/\+\+ECS/\+\doxymbox{\hyperlink{Entity_8hpp}{Entity.\+hpp}}\end{DoxyCompactItemize}

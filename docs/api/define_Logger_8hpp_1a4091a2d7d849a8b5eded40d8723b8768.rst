@@ -3,7 +3,7 @@
 Define LOG_CRITICAL
 ===================
 
-- Defined in :ref:`file_include_Engine_Logger.hpp`
+- Defined in :ref:`file_include_GE_Logger.hpp`
 
 
 Define Documentation
@@ -11,4 +11,4 @@ Define Documentation
 
 
 .. doxygendefine:: LOG_CRITICAL
-   :project: Engine
+   :project: Goiaba Engine
