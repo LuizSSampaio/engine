@@ -2,6 +2,11 @@
 \hypertarget{classEngine_1_1ECS_1_1Entity}{}\label{classEngine_1_1ECS_1_1Entity}\index{Engine::ECS::Entity@{Engine::ECS::Entity}}
 
 
+Helper class to manipulate the \doxylink{namespaceEngine_1_1ECS}{ECS} in a easy way.  
+
+
+
+
 {\ttfamily \+\#include $<$Entity.\+hpp$>$}
 
 \doxysubsubsection*{Public Types}
@@ -15,18 +20,21 @@ enum \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a2b7f019759e703553c7b121a2c69626d}{Entity}} (entt::\+entity entity, std::\+weak\+\_\+ptr$<$ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene}{Scenes::\+\+Scene}} $>$ scene)
-\item 
+\begin{DoxyCompactList}\small\item\em Convert entt::\+entity to our \doxylink{classEngine_1_1ECS_1_1Entity}{Entity} class. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa11b2e414a3904007724b8f115df81c3}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=default
 \item 
 {\footnotesize template$<$typename TComponent, typename... TArgs$>$ }\\std::\+expected$<$ TComponent \&, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_afd82e62fb649ec31cc18e2c140932323}{Add\+Component}} (TArgs \&\&... args)
-\item 
+\begin{DoxyCompactList}\small\item\em Add a component to the entity. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TComponent$>$ }\\std::\+optional$<$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa39b5cbc2f159020a2287f15abb7fe9d}{Remove\+Component}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Remove a component from the entity If the entity don\textquotesingle{}t has the component it\textquotesingle{}ll be a noop. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TComponent$>$ }\\std::\+expected$<$ bool, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa697f55331761f3ea46d70da552f44fa}{Has\+Component}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Check if entity has component. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TComponent$>$ }\\std::\+expected$<$ std::\+optional$<$ TComponent \& $>$, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_ad6ccd4e642496a9527085eae729a8a73}{Get\+Component}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get component from entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Helper class to manipulate the \doxylink{namespaceEngine_1_1ECS}{ECS} in a easy way. 
 
 \label{doc-enum-members}
 \Hypertarget{classEngine_1_1ECS_1_1Entity_doc-enum-members}
@@ -62,6 +70,13 @@ Component\+Already\+Exist&\\
 {\footnotesize\ttfamily \label{classEngine_1_1ECS_1_1Entity_a2b7f019759e703553c7b121a2c69626d} 
 Engine::\+\+ECS::\+\+Entity::\+\+Entity (\begin{DoxyParamCaption}\item[{entt::\+entity}]{entity}{, }\item[{std::\+weak\+\_\+ptr$<$ \doxymbox{\hyperlink{classEngine_1_1Scenes_1_1Scene}{Scenes::\+\+Scene}} $>$}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Convert entt::\+entity to our \doxylink{classEngine_1_1ECS_1_1Entity}{Entity} class. 
+
+\begin{DoxyWarning}{Warning}
+Don\textquotesingle{}t use it directally, use the Scene Create\+Entity() 
+\end{DoxyWarning}
 \Hypertarget{classEngine_1_1ECS_1_1Entity_aa11b2e414a3904007724b8f115df81c3}\index{Engine::ECS::Entity@{Engine::ECS::Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
 \index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!Engine::ECS::Entity@{Engine::ECS::Entity}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}}
@@ -80,6 +95,25 @@ Engine::\+\+ECS::\+\+Entity::\+\texorpdfstring{$\sim$}{\string~}\+Entity (\begin
 template$<$typename TComponent, typename... TArgs$>$ \\
 std::\+expected$<$ TComponent \&, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ Engine::\+\+ECS::\+\+Entity::\+\+Add\+Component (\begin{DoxyParamCaption}\item[{TArgs \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Add a component to the entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be added \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to be forwarded to TComponent contructor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference of the added component if success 
+
+\doxylink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error} enum value related to the issue 
+\end{DoxyReturn}
 \Hypertarget{classEngine_1_1ECS_1_1Entity_ad6ccd4e642496a9527085eae729a8a73}\index{Engine::ECS::Entity@{Engine::ECS::Entity}!GetComponent@{GetComponent}}
 \index{GetComponent@{GetComponent}!Engine::ECS::Entity@{Engine::ECS::Entity}}
 \doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
@@ -87,6 +121,20 @@ std::\+expected$<$ TComponent \&, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Ent
 template$<$typename TComponent$>$ \\
 std::\+expected$<$ std::\+optional$<$ TComponent \& $>$, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ Engine::\+\+ECS::\+\+Entity::\+\+Get\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get component from entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be get \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Component reference if exist 
+
+\doxylink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error} enum value related to the issue 
+\end{DoxyReturn}
 \Hypertarget{classEngine_1_1ECS_1_1Entity_aa697f55331761f3ea46d70da552f44fa}\index{Engine::ECS::Entity@{Engine::ECS::Entity}!HasComponent@{HasComponent}}
 \index{HasComponent@{HasComponent}!Engine::ECS::Entity@{Engine::ECS::Entity}}
 \doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}}
@@ -94,6 +142,20 @@ std::\+expected$<$ std::\+optional$<$ TComponent \& $>$, \doxymbox{\hyperlink{cl
 template$<$typename TComponent$>$ \\
 std::\+expected$<$ bool, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ Engine::\+\+ECS::\+\+Entity::\+\+Has\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Check if entity has component. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be checked \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+If the \doxylink{classEngine_1_1ECS_1_1Entity}{Entity} has the TComponent 
+
+\doxylink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error} enum value related to the issue 
+\end{DoxyReturn}
 \Hypertarget{classEngine_1_1ECS_1_1Entity_aa39b5cbc2f159020a2287f15abb7fe9d}\index{Engine::ECS::Entity@{Engine::ECS::Entity}!RemoveComponent@{RemoveComponent}}
 \index{RemoveComponent@{RemoveComponent}!Engine::ECS::Entity@{Engine::ECS::Entity}}
 \doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
@@ -101,6 +163,18 @@ std::\+expected$<$ bool, \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a7445
 template$<$typename TComponent$>$ \\
 std::\+optional$<$ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}} $>$ Engine::\+\+ECS::\+\+Entity::\+\+Remove\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Remove a component from the entity If the entity don\textquotesingle{}t has the component it\textquotesingle{}ll be a noop. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TComponent} & Type of the component to be removed \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+May return an \doxylink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error} if Scene is invalid 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
