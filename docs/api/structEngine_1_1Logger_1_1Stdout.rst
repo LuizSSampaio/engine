@@ -17,7 +17,7 @@ Struct Documentation
 
 
 .. doxygenstruct:: Engine::Logger::Stdout
-   :project: Engine
+   :project: Goiaba Engine
    :members:
    :protected-members:
    :undoc-members:

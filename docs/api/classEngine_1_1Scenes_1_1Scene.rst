@@ -20,7 +20,7 @@ Class Documentation
 
 
 .. doxygenclass:: Engine::Scenes::Scene
-   :project: Engine
+   :project: Goiaba Engine
    :members:
    :protected-members:
    :undoc-members:

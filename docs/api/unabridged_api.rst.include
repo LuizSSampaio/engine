@@ -9,22 +9,22 @@ Namespaces
 .. toctree::
    :maxdepth: 5
 
-   namespace_Engine.rst
+   namespace_GE.rst
 
 .. toctree::
    :maxdepth: 5
 
-   namespace_Engine__AssetManager.rst
+   namespace_GE__AssetManager.rst
 
 .. toctree::
    :maxdepth: 5
 
-   namespace_Engine__ECS.rst
+   namespace_GE__ECS.rst
 
 .. toctree::
    :maxdepth: 5
 
-   namespace_Engine__Scenes.rst
+   namespace_GE__Scenes.rst
 
 .. toctree::
    :maxdepth: 5
@@ -38,42 +38,42 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
-   structEngine_1_1Logger_1_1File.rst
+   structGE_1_1Logger_1_1File.rst
 
 .. toctree::
    :maxdepth: 5
 
-   structEngine_1_1Logger_1_1Stdout.rst
+   structGE_1_1Logger_1_1Stdout.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1AssetManager_1_1AssetStore.rst
+   classGE_1_1AssetManager_1_1AssetStore.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1Core.rst
+   classGE_1_1Core.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1ECS_1_1Entity.rst
+   classGE_1_1ECS_1_1Entity.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1Logger.rst
+   classGE_1_1Logger.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1Scenes_1_1Manager.rst
+   classGE_1_1Scenes_1_1Manager.rst
 
 .. toctree::
    :maxdepth: 5
 
-   classEngine_1_1Scenes_1_1Scene.rst
+   classGE_1_1Scenes_1_1Scene.rst
 
 Defines
 *******

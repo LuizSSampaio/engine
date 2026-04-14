@@ -1,38 +1,38 @@
 \doxysection{Entity.\+hpp}
-\hypertarget{Entity_8hpp_source}{}\label{Entity_8hpp_source}\index{include/Engine/ECS/Entity.hpp@{include/Engine/ECS/Entity.hpp}}
+\hypertarget{Entity_8hpp_source}{}\label{Entity_8hpp_source}\index{include/GE/ECS/Entity.hpp@{include/GE/ECS/Entity.hpp}}
 \doxymbox{\hyperlink{Entity_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{Scene_8hpp}{Engine/Scenes/Scene.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{Scene_8hpp}{GE/Scenes/Scene.hpp}}>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <expected>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utility>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceEngine_1_1ECS}{Engine::ECS}}\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a2b7f019759e703553c7b121a2c69626d}{Entity}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceGE_1_1ECS}{GE::ECS}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a22a9ba0ed1e4dc51001ff5850eba775e}{Entity}}\ \{}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}}\ :\ std::uint8\_t\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba223f0b953deeccc031dbe9136ca6ae63}{SceneIsUnloaded}},}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba6ab73bdb0541d0d737e5c47bab03578d}{ComponentAlreadyExist}},}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}}\ :\ std::uint8\_t\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{SceneIsUnloaded}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059a484a251bb0abe44859e67e9a0df61be2}{ComponentAlreadyExist}},}
 \DoxyCodeLine{00016\ \ \ \ \ \};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a2b7f019759e703553c7b121a2c69626d}{Entity}}(entt::entity\ entity,\ std::weak\_ptr<Scenes::Scene>\ scene)}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a22a9ba0ed1e4dc51001ff5850eba775e}{Entity}}(entt::entity\ entity,\ std::weak\_ptr<Scenes::Scene>\ scene)}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ :\ scene\_(std::move(scene)),\ entity\_(entity)\ \{\};}
-\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa11b2e414a3904007724b8f115df81c3}{\string~Entity}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a51bc9d32b758abc58f38cb8137f3ad1e}{\string~Entity}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TComponent,\ \textcolor{keyword}{typename}...\ TArgs>}
-\DoxyCodeLine{00030\ \ \ \ \ std::expected<TComponent\&,\ Error>\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_afd82e62fb649ec31cc18e2c140932323}{AddComponent}}(TArgs\&\&...\ args)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ std::expected<TComponent\&,\ Error>\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a03d2ba3c8118ecca8369edef4a0316d0}{AddComponent}}(TArgs\&\&...\ args)\ \{}
 \DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scene\ =\ this-\/>GetSceneSafe();}
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!scene.has\_value())\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba223f0b953deeccc031dbe9136ca6ae63}{Error::SceneIsUnloaded}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{Error::SceneIsUnloaded}});}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ registry\ =\ scene.value()-\/>registry\_;}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa697f55331761f3ea46d70da552f44fa}{HasComponent<TComponent>}}())\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba6ab73bdb0541d0d737e5c47bab03578d}{Error::ComponentAlreadyExist}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088}{HasComponent<TComponent>}}())\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059a484a251bb0abe44859e67e9a0df61be2}{Error::ComponentAlreadyExist}});}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ registry.emplace<TComponent>(this-\/>entity\_,}
@@ -40,10 +40,10 @@
 \DoxyCodeLine{00044\ \ \ \ \ \}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TComponent>}
-\DoxyCodeLine{00051\ \ \ \ \ std::optional<Error>\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa39b5cbc2f159020a2287f15abb7fe9d}{RemoveComponent}}()\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::optional<Error>\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a0874b820e2c555cc9e0699e961ee79d1}{RemoveComponent}}()\ \{}
 \DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scene\ =\ this-\/>GetSceneSafe();}
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!scene.has\_value())\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba223f0b953deeccc031dbe9136ca6ae63}{Error::SceneIsUnloaded}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{Error::SceneIsUnloaded}};}
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00056\ }
 \DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ registry\ =\ scene.value()-\/>registry\_;}
@@ -53,10 +53,10 @@
 \DoxyCodeLine{00061\ \ \ \ \ \}}
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TComponent>}
-\DoxyCodeLine{00068\ \ \ \ \ std::expected<bool,\ Error>\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa697f55331761f3ea46d70da552f44fa}{HasComponent}}()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ std::expected<bool,\ Error>\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088}{HasComponent}}()\ \{}
 \DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scene\ =\ this-\/>GetSceneSafe();}
 \DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!scene.has\_value())\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba223f0b953deeccc031dbe9136ca6ae63}{Error::SceneIsUnloaded}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{Error::SceneIsUnloaded}});}
 \DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00073\ }
 \DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ registry\ =\ scene.value()-\/>registry\_;}
@@ -64,14 +64,14 @@
 \DoxyCodeLine{00076\ \ \ \ \ \}}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TComponent>}
-\DoxyCodeLine{00083\ \ \ \ \ std::expected<std::optional<TComponent\&>,\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949b}{Error}}>\ \doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_ad6ccd4e642496a9527085eae729a8a73}{GetComponent}}()\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ std::expected<std::optional<TComponent\&>,\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059}{Error}}>\ \doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_a0e5e5c92d602a8ac979ac04ada6a6588}{GetComponent}}()\ \{}
 \DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scene\ =\ this-\/>GetSceneSafe();}
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!scene.has\_value())\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_a744562257608436383fab2e6a037949ba223f0b953deeccc031dbe9136ca6ae63}{Error::SceneIsUnloaded}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_ab4dcdddfa5c87545404e468c851d9059ae71e6ffa19d9b3988fdaf817bd323832}{Error::SceneIsUnloaded}});}
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00088\ }
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ registry\ =\ scene.value()-\/>registry\_;}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\doxymbox{\hyperlink{classEngine_1_1ECS_1_1Entity_aa697f55331761f3ea46d70da552f44fa}{HasComponent<TComponent>}}())\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\doxymbox{\hyperlink{classGE_1_1ECS_1_1Entity_aab9b3629ba02d6521911256aa1dda088}{HasComponent<TComponent>}}())\ \{}
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
 \DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00093\ }
@@ -90,6 +90,6 @@
 \DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>scene\_.lock();}
 \DoxyCodeLine{00107\ \ \ \ \ \}}
 \DoxyCodeLine{00108\ \};}
-\DoxyCodeLine{00109\ \}\ \ \textcolor{comment}{//\ namespace\ Engine::ECS}}
+\DoxyCodeLine{00109\ \}\ \ \textcolor{comment}{//\ namespace\ GE::ECS}}
 
 \end{DoxyCode}
