@@ -4,7 +4,7 @@
 
 using namespace GE::Scenes;
 
-std::optional<std::shared_ptr<Scene>> Manager::LoadScene(
+std::optional<std::shared_ptr<Scene>> SceneManager::LoadScene(
     const std::string& id) {
     auto scene = std::make_shared<Scene>(id);
     this->loadedScenes_.insert(std::make_pair(id, scene));
@@ -12,7 +12,7 @@ std::optional<std::shared_ptr<Scene>> Manager::LoadScene(
     return scene;
 }
 
-std::optional<std::shared_ptr<Scene>> Manager::GetScene(
+std::optional<std::shared_ptr<Scene>> SceneManager::GetScene(
     const std::string& id) const {
     if (!this->loadedScenes_.contains(id)) {
         return {};
@@ -22,7 +22,8 @@ std::optional<std::shared_ptr<Scene>> Manager::GetScene(
 }
 
 // TODO: Create a destroy queue to be cleaned at the end of the frame
-std::optional<Manager::Error> Manager::UnloadScene(const std::string& id) {
+std::optional<SceneManager::Error> SceneManager::UnloadScene(
+    const std::string& id) {
     if (!this->loadedScenes_.contains(id)) {
         return Error::SceneNotLoaded;
     }
