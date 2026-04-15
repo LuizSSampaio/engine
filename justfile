@@ -11,6 +11,9 @@ run:
 
 brun: build run
 
+test: build
+    ./{{ builddir }}/tests/engine/engine-test
+
 setup:
     meson setup {{ builddir }}
 
