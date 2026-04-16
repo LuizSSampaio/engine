@@ -20,7 +20,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Discover C/C++ sources
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! -d "${{ matrix.path }}" ]]; then
+            echo "has_sources=false" >> "$GITHUB_OUTPUT"
+            echo "source_count=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mapfile -t files < <(find "${{ matrix.path }}" -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' -o -name '*.hxx' \))
+          echo "source_count=${#files[@]}" >> "$GITHUB_OUTPUT"
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "has_sources=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "has_sources=true" >> "$GITHUB_OUTPUT"
+
+      - name: Skip when no C/C++ sources in matrix path
+        if: steps.discover.outputs.has_sources != 'true'
+        run: |
+          echo "Skipping ${{ matrix.path }}: no C/C++ source files found."
+
       - name: Install dependencies
+        if: steps.discover.outputs.has_sources == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -53,24 +81,16 @@ jobs:
           ~/.local/bin/meson --version
 
       - name: Setup Meson build
+        if: steps.discover.outputs.has_sources == 'true'
         run: ~/.local/bin/meson setup build -Dbuildtype=debug
 
       - name: Run clang-tidy
+        if: steps.discover.outputs.has_sources == 'true'
         shell: bash
         run: |
           set -euo pipefail
 
-          if [[ ! -d "${{ matrix.path }}" ]]; then
-            echo "Skipping ${{ matrix.path }}: directory not found."
-            exit 0
-          fi
-
           mapfile -t files < <(find "${{ matrix.path }}" -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' -o -name '*.hxx' \))
-
-          if [[ ${#files[@]} -eq 0 ]]; then
-            echo "No source files found in ${{ matrix.path }}."
-            exit 0
-          fi
 
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
           printf '%s\0' "${files[@]}" | xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
