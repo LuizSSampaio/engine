@@ -5,17 +5,13 @@ on:
       - '**/*.hpp'
       - '**/*.cpp'
       - '.clang-format'
-      - '.clang-tidy'
       - '**/.clang-format'
-      - '**/.clang-tidy'
   pull_request:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
       - '.clang-format'
-      - '.clang-tidy'
       - '**/.clang-format'
-      - '**/.clang-tidy'
 jobs:
   formatting-check:
     name: Formatting Check
