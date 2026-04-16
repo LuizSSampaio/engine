@@ -41,7 +41,7 @@ jobs:
           fi
 
           path_key="${{ matrix.path }}"
-          path_key="${path_key//[^A-Za-z0-9_.-]/_}"
+          path_key="${path_key//[^A-Za-z0-9_]/_}"
           files_list="${RUNNER_TEMP}/clang-tidy-${path_key}-files.txt"
           printf '%s\0' "${files[@]}" > "${files_list}"
 
