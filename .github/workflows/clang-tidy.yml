@@ -40,12 +40,11 @@ jobs:
             exit 0
           fi
 
+          files_list="${RUNNER_TEMP}/clang-tidy-${{ matrix.path }}-files.txt"
+          printf '%s\0' "${files[@]}" > "${files_list}"
+
           echo "has_sources=true" >> "$GITHUB_OUTPUT"
-          {
-            echo "files<<EOF"
-            printf '%s\n' "${files[@]}"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          echo "files_list=${files_list}" >> "$GITHUB_OUTPUT"
 
       - name: Skip when no C/C++ sources in matrix path
         if: steps.discover.outputs.has_sources != 'true'
@@ -95,7 +94,5 @@ jobs:
         run: |
           set -euo pipefail
 
-          mapfile -t files < <(printf '%s\n' "${{ steps.discover.outputs.files }}")
-
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
-          printf '%s\0' "${files[@]}" | xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
+          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}" || exit 1
