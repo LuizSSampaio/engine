@@ -92,4 +92,4 @@ jobs:
           set -euo pipefail
 
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
-          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}" || exit 1
+          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}"
