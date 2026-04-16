@@ -4,12 +4,18 @@ on:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
-      - '**/.clang-*'
+      - '.clang-format'
+      - '.clang-tidy'
+      - '**/.clang-format'
+      - '**/.clang-tidy'
   pull_request:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
-      - '**/.clang-*'
+      - '.clang-format'
+      - '.clang-tidy'
+      - '**/.clang-format'
+      - '**/.clang-tidy'
 
 jobs:
   clang-tidy-check:
