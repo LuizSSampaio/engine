@@ -1,0 +1,95 @@
+name: Clang-Tidy Check
+on: [push, pull_request]
+
+jobs:
+  clang-tidy-check:
+    name: Clang-Tidy Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      CLANG_TIDY_BATCH_SIZE: 20
+    strategy:
+      matrix:
+        path:
+          - 'editor'
+          - 'engine'
+          - 'samples'
+          - 'tests'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Discover C/C++ sources
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! -d "${{ matrix.path }}" ]]; then
+            echo "has_sources=false" >> "$GITHUB_OUTPUT"
+            echo "source_count=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          mapfile -t files < <(find "${{ matrix.path }}" -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' -o -name '*.hxx' \))
+          echo "source_count=${#files[@]}" >> "$GITHUB_OUTPUT"
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "has_sources=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          path_key="${{ matrix.path }}"
+          path_key="${path_key//[^A-Za-z0-9_]/_}"
+          files_list="${RUNNER_TEMP}/clang-tidy-${path_key}-files.txt"
+          printf '%s\0' "${files[@]}" > "${files_list}"
+
+          echo "has_sources=true" >> "$GITHUB_OUTPUT"
+          echo "files_list=${files_list}" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        if: steps.discover.outputs.has_sources == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang-tidy \
+            ninja-build \
+            python3-pip \
+            pkg-config \
+            libudev-dev \
+            libegl1-mesa-dev \
+            libgl1-mesa-dev \
+            libx11-dev \
+            libxext-dev \
+            libxi-dev \
+            libxcursor-dev \
+            libxrandr-dev \
+            libxfixes-dev \
+            libxkbcommon-dev \
+            libwayland-dev \
+            wayland-protocols \
+            libpipewire-0.3-dev \
+            libdbus-1-dev \
+            libasound2-dev \
+            libpulse-dev \
+            libfreetype6-dev \
+            libharfbuzz-dev \
+            libpng-dev \
+            libjpeg-dev
+
+          python3 -m pip install --user --upgrade "meson>=1.6"
+          ~/.local/bin/meson --version
+
+      - name: Setup Meson build
+        if: steps.discover.outputs.has_sources == 'true'
+        run: ~/.local/bin/meson setup build -Dbuildtype=debug
+
+      - name: Run clang-tidy
+        if: steps.discover.outputs.has_sources == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
+          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}"
