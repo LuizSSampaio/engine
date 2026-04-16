@@ -1,17 +1,17 @@
 name: Clang-Tidy Check
 on:
   push:
+    branches:
+      - master
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
       - '.clang-tidy'
-      - '**/.clang-tidy'
   pull_request:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
       - '.clang-tidy'
-      - '**/.clang-tidy'
 
 jobs:
   clang-tidy-check:
