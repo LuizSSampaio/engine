@@ -1,5 +1,17 @@
 name: Clang-Tidy Check
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - '**/*.hpp'
+      - '**/*.cpp'
+      - '.clang-*'
+      - '**/.clang-*'
+  pull_request:
+    paths:
+      - '**/*.hpp'
+      - '**/*.cpp'
+      - '.clang-*'
+      - '**/.clang-*'
 
 jobs:
   clang-tidy-check:
