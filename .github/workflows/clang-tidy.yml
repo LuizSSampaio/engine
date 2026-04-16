@@ -25,8 +25,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             clang-tidy \
-            meson \
             ninja-build \
+            python3-pip \
             pkg-config \
             libudev-dev \
             libegl1-mesa-dev \
@@ -49,8 +49,11 @@ jobs:
             libpng-dev \
             libjpeg-dev
 
+          python3 -m pip install --user --upgrade "meson>=1.6"
+          ~/.local/bin/meson --version
+
       - name: Setup Meson build
-        run: meson setup build -Dbuildtype=debug
+        run: ~/.local/bin/meson setup build -Dbuildtype=debug
 
       - name: Run clang-tidy
         shell: bash
