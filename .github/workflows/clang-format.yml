@@ -1,37 +1,20 @@
-name: clang-format
-
-on:
-  push:
-    branches: [master]
-    paths:
-      - '**/*.cpp'
-      - '**/*.hpp'
-      - '**/*.h'
-      - '.clang-format'
-  pull_request:
-    paths:
-      - '**/*.cpp'
-      - '**/*.hpp'
-      - '**/*.h'
-      - '.clang-format'
-
+name: clang-format Check
+on: [push, pull_request]
 jobs:
-  format-check:
-    name: Check formatting
+  formatting-check:
+    name: Formatting Check
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        path:
+          - 'editor'
+          - 'engine'
+          - 'samples'
+          - 'tests'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install clang-format
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang-format-19
-
-      - name: Run clang-format check
-        run: |
-          find . \( -name '*.cpp' -o -name '*.hpp' -o -name '*.h' \) \
-            ! -path './subprojects/*' \
-            ! -path './build/*' \
-            | xargs clang-format-19 --dry-run --Werror
+    - uses: actions/checkout@v4
+    - name: Run clang-format style check for C/C++/Protobuf programs.
+      uses: jidicula/clang-format-action@v4.18.0
+      with:
+        check-path: ${{ matrix.path }}
+        fallback-style: 'google'
