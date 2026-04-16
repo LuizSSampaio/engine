@@ -4,13 +4,11 @@ on:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
-      - '.clang-*'
       - '**/.clang-*'
   pull_request:
     paths:
       - '**/*.hpp'
       - '**/*.cpp'
-      - '.clang-*'
       - '**/.clang-*'
 jobs:
   formatting-check:
