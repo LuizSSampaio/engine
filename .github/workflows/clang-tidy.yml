@@ -41,6 +41,11 @@ jobs:
           fi
 
           echo "has_sources=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "files<<EOF"
+            printf '%s\n' "${files[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Skip when no C/C++ sources in matrix path
         if: steps.discover.outputs.has_sources != 'true'
@@ -90,7 +95,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          mapfile -t files < <(find "${{ matrix.path }}" -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' -o -name '*.hxx' \))
+          mapfile -t files <<< "${{ steps.discover.outputs.files }}"
 
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
           printf '%s\0' "${files[@]}" | xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
