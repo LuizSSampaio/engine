@@ -1,0 +1,68 @@
+name: clang-tidy Check
+on: [push, pull_request]
+
+jobs:
+  clang-tidy-check:
+    name: clang-tidy Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path:
+          - 'editor'
+          - 'engine'
+          - 'samples'
+          - 'tests'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            clang-tidy \
+            meson \
+            ninja-build \
+            pkg-config \
+            libudev-dev \
+            libegl1-mesa-dev \
+            libgl1-mesa-dev \
+            libx11-dev \
+            libxext-dev \
+            libxi-dev \
+            libxcursor-dev \
+            libxrandr-dev \
+            libxfixes-dev \
+            libxkbcommon-dev \
+            libwayland-dev \
+            wayland-protocols \
+            libpipewire-0.3-dev \
+            libdbus-1-dev \
+            libasound2-dev \
+            libpulse-dev \
+            libfreetype6-dev \
+            libharfbuzz-dev \
+            libpng-dev \
+            libjpeg-dev
+
+      - name: Setup Meson build
+        run: meson setup build --wipe
+
+      - name: Run clang-tidy
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ ! -d "${{ matrix.path }}" ]]; then
+            echo "Skipping ${{ matrix.path }}: directory not found."
+            exit 0
+          fi
+
+          mapfile -t files < <(find "${{ matrix.path }}" -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.cxx' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' -o -name '*.hxx' \))
+
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "No source files found in ${{ matrix.path }}."
+            exit 0
+          fi
+
+          clang-tidy --quiet --warnings-as-errors='*' -p build "${files[@]}"
