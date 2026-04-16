@@ -47,11 +47,6 @@ jobs:
           echo "has_sources=true" >> "$GITHUB_OUTPUT"
           echo "files_list=${files_list}" >> "$GITHUB_OUTPUT"
 
-      - name: Skip when no C/C++ sources in matrix path
-        if: steps.discover.outputs.has_sources != 'true'
-        run: |
-          echo "Skipping ${{ matrix.path }}: no C/C++ source files found."
-
       - name: Install dependencies
         if: steps.discover.outputs.has_sources == 'true'
         run: |
