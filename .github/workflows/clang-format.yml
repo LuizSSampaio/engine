@@ -1,5 +1,17 @@
 name: clang-format Check
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.hpp'
+      - '**/*.cpp'
+      - '.clang-format'
+  pull_request:
+    paths:
+      - '**/*.hpp'
+      - '**/*.cpp'
+      - '.clang-format'
 jobs:
   formatting-check:
     name: Formatting Check
