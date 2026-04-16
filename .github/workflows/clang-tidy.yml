@@ -67,4 +67,5 @@ jobs:
             exit 0
           fi
 
-          printf '%s\0' "${files[@]}" | xargs -0 -n 20 -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
+          BATCH_SIZE=20
+          printf '%s\0' "${files[@]}" | xargs -0 -n "${BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
