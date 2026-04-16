@@ -40,7 +40,8 @@ jobs:
             exit 0
           fi
 
-          path_key="$(printf '%s' "${{ matrix.path }}" | sha256sum | cut -d' ' -f1)"
+          path_key="${{ matrix.path }}"
+          path_key="${path_key//[^A-Za-z0-9_.-]/_}"
           files_list="${RUNNER_TEMP}/clang-tidy-${path_key}-files.txt"
           printf '%s\0' "${files[@]}" > "${files_list}"
 
@@ -91,4 +92,4 @@ jobs:
           set -euo pipefail
 
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
-          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE:-20}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}" || exit 1
+          xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build < "${{ steps.discover.outputs.files_list }}" || exit 1
