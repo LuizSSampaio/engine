@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   clang-tidy-check:
-    name: clang-tidy Check
+    name: Clang-Tidy Check
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -67,5 +67,6 @@ jobs:
             exit 0
           fi
 
+          # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
           BATCH_SIZE=20
           printf '%s\0' "${files[@]}" | xargs -0 -n "${BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
