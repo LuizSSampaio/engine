@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      CLANG_TIDY_BATCH_SIZE: 20
     strategy:
       matrix:
         path:
@@ -68,5 +70,4 @@ jobs:
           fi
 
           # Keep batches moderate to reduce process startup overhead while avoiding very long single invocations.
-          BATCH_SIZE=20
-          printf '%s\0' "${files[@]}" | xargs -0 -n "${BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
+          printf '%s\0' "${files[@]}" | xargs -0 -n "${CLANG_TIDY_BATCH_SIZE}" -P "$(nproc)" clang-tidy --quiet --warnings-as-errors='*' -p build || exit 1
