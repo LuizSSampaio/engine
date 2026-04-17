@@ -8,9 +8,10 @@ A learning game engine focused on merging 2D with 3D graphics, enabling amazing 
 
 Goiaba Engine requires the following tools and libraries:
 
-- **Meson** (build system)
+- **Meson** >= 1.6 (build system)
 - **Ninja** (build tool)
-- **C++ Compiler** with C++23 support (Clang recommended)
+- **C and C++ Compilers** (or a toolchain like **Clang** or **GCC** that provides both), with C++23 support for the C++ compiler
+- **just** (task runner) — install via your package manager or from [https://just.systems](https://just.systems/man/en/packages.html)
 
 ### Linux (Primary Platform)
 
@@ -35,21 +36,38 @@ nix develop
 If you prefer to manage dependencies manually, follow these steps:
 
 **Debian/Ubuntu:**
+
+> **Note:** The `meson` package in apt is often older than the required version (>=1.6). Install Meson via `pip` or `pipx` instead:
+
 ```bash
-# Install build tools
-sudo apt-get install meson ninja-build clang
+# Install build tools and SDL runtime dependencies
+# Note: `just` may not be in standard apt repos; if not found, install it manually:
+# https://just.systems/man/en/packages.html
+sudo apt-get install ninja-build clang just \
+    libpng-dev libfreetype-dev \
+    libudev-dev libdbus-1-dev libpipewire-0.3-dev \
+    libwayland-dev libxkbcommon-dev
+
+# Install Meson >= 1.6 via pipx (recommended) or pip --user
+pipx install meson
+# or: pip install --user meson
 ```
 
 **Fedora/RHEL:**
 ```bash
-# Install build tools
-sudo dnf install meson ninja-build clang
+# Install build tools and SDL runtime dependencies
+sudo dnf install meson ninja-build clang just \
+    libpng-devel freetype-devel \
+    systemd-devel dbus-devel pipewire-devel \
+    wayland-devel libxkbcommon-devel
 ```
 
 **Arch Linux:**
 ```bash
-# Install build tools
-sudo pacman -S meson ninja clang
+# Install build tools and SDL runtime dependencies
+sudo pacman -S meson ninja clang just \
+    libpng freetype2 \
+    libpipewire wayland libxkbcommon
 ```
 
 After installing dependencies, clone and prepare the project:
@@ -71,7 +89,7 @@ nix develop
 
 Alternatively, you can install dependencies via Homebrew:
 ```bash
-brew install meson ninja
+brew install meson ninja just
 ```
 
 ### Windows
@@ -80,7 +98,7 @@ Windows support is available but has not been tested. You can use native Windows
 
 ## Building
 
-Use the `justfile` task runner to build and run the engine. The `justfile` contains shortcuts for common development tasks.
+Use the `justfile` task runner to build and run the engine. The `justfile` contains shortcuts for common development tasks. Make sure `just` is installed (see [Prerequisites](#prerequisites)).
 
 ### Available Tasks
 
@@ -110,7 +128,7 @@ just --list
 
 ## Documentation
 
-Full API documentation and usage guides are available in the [`docs/`](./docs/) folder. To generate and view the documentation locally:
+Full API documentation and usage guides are available in the [`docs/`](./docs/) folder. Generating the documentation requires **Doxygen** and **sphinx-build** (from [Sphinx](https://www.sphinx-doc.org/)), and serving it locally requires **Python 3**. To generate and view the documentation locally:
 
 ```bash
 just docs-serve
