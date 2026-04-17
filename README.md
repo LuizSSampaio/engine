@@ -60,7 +60,7 @@ cd engine
 
 ### macOS
 
-macOS support is available but has not been tested. Using Nix flakes (via nixOS or Determinate Systems' Nix installer) is recommended for consistency:
+macOS support is available but has not been tested. Using Nix flakes (via NixOS or Determinate Systems' Nix installer) is recommended for consistency:
 
 ```bash
 git clone https://github.com/LuizSSampaio/engine.git
