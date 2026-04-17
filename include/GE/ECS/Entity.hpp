@@ -2,6 +2,7 @@
 
 #include <GE/Scenes/Scene.hpp>
 #include <expected>
+#include <functional>
 #include <memory>
 #include <optional>
 #include <utility>
@@ -27,15 +28,20 @@ public:
     //! \return Reference of the added component if success
     //! \return Error enum value related to the issue
     template <typename TComponent, typename... TArgs>
-    std::expected<TComponent&, Error> AddComponent(TArgs&&... args) {
+    std::expected<std::reference_wrapper<TComponent>, Error> AddComponent(
+        TArgs&&... args) {
         auto scene = this->GetSceneSafe();
         if (!scene.has_value()) {
             return std::unexpected(Error::SceneIsUnloaded);
         }
 
-        const auto& registry = scene.value()->registry_;
+        auto& registry = scene.value()->registry_;
 
-        if (this->HasComponent<TComponent>()) {
+        auto hasComponent = this->HasComponent<TComponent>();
+        if (!hasComponent.has_value()) {
+            return std::unexpected(hasComponent.error());
+        }
+        if (hasComponent.value()) {
             return std::unexpected(Error::ComponentAlreadyExist);
         }
 
@@ -54,7 +60,7 @@ public:
             return Error::SceneIsUnloaded;
         }
 
-        const auto& registry = scene.value()->registry_;
+        auto& registry = scene.value()->registry_;
 
         registry.remove<TComponent>(this->entity_);
         return {};
@@ -80,14 +86,15 @@ public:
     //! \return Component reference if exist
     //! \return Error enum value related to the issue
     template <typename TComponent>
-    std::expected<std::optional<TComponent&>, Error> GetComponent() {
+    std::expected<std::optional<std::reference_wrapper<TComponent>>, Error>
+    GetComponent() {
         auto scene = this->GetSceneSafe();
         if (!scene.has_value()) {
             return std::unexpected(Error::SceneIsUnloaded);
         }
 
         const auto& registry = scene.value()->registry_;
-        if (!this->HasComponent<TComponent>()) {
+        if (!this->HasComponent<TComponent>().value()) {
             return {};
         }
 
